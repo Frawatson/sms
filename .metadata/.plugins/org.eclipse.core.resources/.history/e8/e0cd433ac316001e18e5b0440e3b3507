@@ -1,0 +1,51 @@
+package watson.corp.Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+
+import watson.corp.Model.Students;
+import watson.corp.StudentService.StudentService;
+
+@Controller
+public class StudentController {
+	
+	private StudentService studentService;
+	
+	public StudentController (StudentService studentService) {
+		super();
+		this.studentService = studentService;
+	}
+	
+	@GetMapping("/students")
+	public String listAllStudents(Model model){
+		model.addAttribute("students", studentService.getAllStudents());
+		return "students";
+	}
+	
+	@GetMapping("/students/new")
+	public String creatStudentForm(Model model) {
+		Students students = new Students();
+		model.addAttribute("students", students);
+		return "create_students";
+	}
+	
+	@PostMapping("/savestudent")
+	public String saveStudents(@ModelAttribute("students") Students students) {
+		studentService.saveStudents(students);
+		return "redirect:/students";
+	}
+	
+	@PutMapping("/students/edit/{id}")
+	public String editStudentForm(@PathVariable Long id, Model model) {
+		model.addAttribute("students", studentService.getStudentById(id));
+		return "edit_student";
+	}
+	
+	
+	
+}

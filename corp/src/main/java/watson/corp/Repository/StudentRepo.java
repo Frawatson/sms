@@ -1,0 +1,9 @@
+package watson.corp.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import watson.corp.Model.Students;
+
+public interface StudentRepo extends JpaRepository<Students, Long> {
+	
+}

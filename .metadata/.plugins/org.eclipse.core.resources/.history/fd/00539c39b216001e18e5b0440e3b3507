@@ -1,0 +1,27 @@
+package watson.corp;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import watson.corp.Model.Students;
+import watson.corp.Repository.StudentRepo;
+
+
+@SpringBootApplication
+public class CorpApplication implements CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(CorpApplication.class, args);
+	}
+
+	@Autowired
+	private StudentRepo studentRepo;
+	@Override
+	public void run(String... args) throws Exception {
+		Students students1 = new Students();
+		
+	}
+
+}

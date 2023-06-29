@@ -1,0 +1,27 @@
+package StudentServiceImpl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import Model.Students;
+import Repository.StudentRepo;
+import Service.StudentService;
+
+@Service
+public class StudentServiceImpl implements StudentService{
+	
+	private StudentRepo studentRepo;
+	
+	public StudentServiceImpl(StudentRepo studentRepo) {
+		super();
+		this.studentRepo = studentRepo;
+	}
+
+	@Override
+	public List<Students> getAllStudents() {
+		// TODO Auto-generated method stub
+		return studentRepo.findAll();
+	}
+
+}

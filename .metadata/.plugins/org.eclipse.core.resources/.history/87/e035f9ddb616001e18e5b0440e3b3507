@@ -1,0 +1,39 @@
+package watson.corp.Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import watson.corp.Model.Students;
+import watson.corp.StudentService.StudentService;
+
+@Controller
+public class StudentController {
+	
+	private StudentService studentService;
+	
+	public StudentController (StudentService studentService) {
+		super();
+		this.studentService = studentService;
+	}
+	
+	@GetMapping("/students")
+	public String listAllStudents(Model model){
+		model.addAttribute("students", studentService.getAllStudents());
+		return "students";
+	}
+	
+	@GetMapping("/students/new")
+	public String creatStudentForm(Model model) {
+		Students students = new Students();
+		model.addAttribute("students", students);
+		return "create_students";
+	}
+	
+	@PostMapping("/savestudents")
+	public String saveStudent() {
+		
+	}
+	
+}

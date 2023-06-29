@@ -1,0 +1,19 @@
+package watson.corp.StudentService;
+
+import java.util.List;
+
+import watson.corp.Model.Students;
+
+public interface StudentService {
+	
+	List<Students> getAllStudents();
+	
+	Students saveStudents(Students students);
+	
+	Students updateStudent(Students students);
+	
+	Students getStudentById(Long id);
+	
+	void deleteStudentById(Long id);
+	
+}

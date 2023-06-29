@@ -1,0 +1,13 @@
+package Service;
+
+import java.util.List;
+
+import Model.Students;
+
+public interface StudentService {
+	
+	List<Students> getAllStudents(){
+		re
+	}
+	
+}
